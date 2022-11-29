@@ -1,0 +1,4 @@
+class Puzzle < ApplicationRecord
+
+
+end 
