@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_29_033600) do
+ActiveRecord::Schema.define(version: 2022_11_29_230034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "collectors", force: :cascade do |t|
+    t.string "name"
+    t.integer "skills_rating"
+    t.boolean "under_30_yrs"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "puzzles", force: :cascade do |t|
     t.string "name"
@@ -21,6 +29,9 @@ ActiveRecord::Schema.define(version: 2022_11_29_033600) do
     t.boolean "put_together"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "collector_id"
+    t.index ["collector_id"], name: "index_puzzles_on_collector_id"
   end
 
+  add_foreign_key "puzzles", "collectors"
 end
