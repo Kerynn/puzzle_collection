@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get '/collectors/:id', to: 'collectors#show'
   get '/puzzles', to: 'puzzles#index'
   get '/puzzles/:id', to: 'puzzles#show'
+  get '/collectors/:collector_id/puzzles', to: 'collector_puzzles#index'
 end
 
