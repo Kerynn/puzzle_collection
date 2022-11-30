@@ -1,11 +1,6 @@
 require 'rails_helper'
 
-# As a visitor INDEX
-# When I visit '/puzzles'
-# Then I see each puzzle name including pieces_count and put_togehter
-
-
-RSpec.describe Puzzle, type: :model do 
+RSpec.describe "puzzles index page" do 
 
   it 'displays the puzzle page with all the puzzles and their attributes' do 
   collector = Collector.create!(name: "Charlie Moore", skills_rating: 5, under_30_yrs: false)
@@ -17,5 +12,8 @@ RSpec.describe Puzzle, type: :model do
   expect(page).to have_content(starwars.name)
   expect(page).to have_content(starwars.pieces_count)
   expect(page).to have_content(starwars.put_together)
+  expect(page).to have_content(rainbowcookies.name)
+  expect(page).to have_content(rainbowcookies.pieces_count)
+  expect(page).to have_content(rainbowcookies.put_together)
   end 
 end 
