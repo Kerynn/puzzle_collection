@@ -11,7 +11,7 @@ RSpec.describe 'the puzzles show page' do
 # Then I see each puzzle that is associated with that Collector with each puzzle's attributes
 # (data from each column that is on the child table)
 
-# As a visitor SHOW
+# As a visitor SHOW Need to create a collectors folder in features to then test
 # When I visit '/collectors/:id'
 # Then I see the Collector name with that id including the skills rating and if under 30
 
