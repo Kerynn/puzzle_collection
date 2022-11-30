@@ -8,8 +8,11 @@ RSpec.describe 'collectors show page' do
         collector_2 = Collector.create!(name: "Leslie Grant", skills_rating: 8, under_30_yrs: true)
 
         visit "/collectors/#{collector_1.id}"
-        save_and_open_page
-        
+
+        expect(page).to have_content(collector_1.name)
+        expect(page).to_not have_content(collector_2.name)
+        expect(page).to have_content("Skills Rating: 5")
+        expect(page).to have_content("Under 30 Years Old: false")
       end 
     end 
   end 
