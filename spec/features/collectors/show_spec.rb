@@ -11,8 +11,8 @@ RSpec.describe 'collectors show page' do
 
         expect(page).to have_content(collector_1.name)
         expect(page).to_not have_content(collector_2.name)
-        expect(page).to have_content("Skills Rating: 5")
-        expect(page).to have_content("Under 30 Years Old: false")
+        expect(page).to have_content("Skills Rating: #{collector_1.skills_rating}")
+        expect(page).to have_content("Under 30 Years Old: #{collector_1.under_30_yrs}")
       end 
     end 
   end 
