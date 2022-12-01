@@ -11,14 +11,8 @@ RSpec.describe "collectors index page" do
     expect(page).to have_content(collector_2.name)
   end 
 
-  # As a visitor
-  # When I visit the parent index,
-  # I see that records are ordered by most recently created first
-  # And next to each of the records I see when it was created
-
   it 'collectors are ordered by most recently created first' do 
     collector_1 = Collector.create!(name: "Charlie Moore", skills_rating: 5, under_30_yrs: false)
-    sleep(1) 
     collector_2 = Collector.create!(name: "Leslie Grant", skills_rating: 8, under_30_yrs: true)
     collector_3 = Collector.create!(name: "Nicole Wofford", skills_rating: 10, under_30_yrs: true)
    
