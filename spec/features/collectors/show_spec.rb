@@ -29,6 +29,28 @@ RSpec.describe 'collectors show page' do
       expect(page).to have_content(nicole.name)
       expect(page).to have_content("Total Puzzle Count: #{nicole.puzzle_count}")
       expect(page).to_not have_content("Total Puzzle Count: #{charlie.puzzle_count}")
+    end
+    
+    it 'has a Puzzles of the Collector link' do 
+      nicole = Collector.create!(name: "Nicole Wofford", skills_rating: 10, under_30_yrs: true)
+      lake_puzzle = nicole.puzzles.create!(name: "Hintersee Lake", pieces_count: 1000, put_together: true)
+      dogs_puzzle = nicole.puzzles.create!(name: "Hot Dogs A-Z", pieces_count: 1000, put_together: true)
+      cats = nicole.puzzles.create!(name: "Cats in Pajamas", pieces_count: 750, put_together: true)
+
+      charlie = Collector.create!(name: "Charlie Moore", skills_rating: 5, under_30_yrs: false)
+      starwars = charlie.puzzles.create!(name: "Star Wars", pieces_count: 1000, put_together: false)
+      rainbowcookies = charlie.puzzles.create!(name: "Rainbow Cookies", pieces_count: 300, put_together: true)
+
+      visit "/collectors/#{nicole.id}"
+      expect(page).to have_link("Go to the Puzzles of this Collector")
+
+      visit "/collectors/#{charlie.id}"
+      expect(page).to have_link("Go to the Puzzles of this Collector")
     end 
+    
+    
+    
+    it 'routes to that Collectors puzzles index page'
+
   end 
 end 
