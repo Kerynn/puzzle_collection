@@ -2,8 +2,7 @@
 <br>
 <%= link_to "Go to Puzzles Index", "/puzzles" %>
 <br>
-<%= link_to "Go to the Puzzles of this Collector" %>
-
+<%= link_to "Go to the Puzzles of this Collector", "/collectors/#{@collector.id}/puzzles" %>
 
 <h1><%= @collector.name %></h1>
 <p>Skills Rating: <%= @collector.skills_rating %></p>
