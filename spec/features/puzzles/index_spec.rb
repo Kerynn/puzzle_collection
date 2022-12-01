@@ -18,7 +18,7 @@ RSpec.describe "puzzles index page" do
   end 
 
   describe 'When I visit any page on the site' do 
-    it 'shows a link at the top of the page' do 
+    it 'shows a go to puzzles index link at the top of the page' do 
       charlie = Collector.create!(name: "Charlie Moore", skills_rating: 5, under_30_yrs: false)
       starwars = Puzzle.create!(name: "Star Wars", pieces_count: 1000, put_together: true, collector: charlie)
       rainbowcookies = Puzzle.create!(name: "Rainbow Cookies", pieces_count: 300, put_together: true, collector: charlie)
