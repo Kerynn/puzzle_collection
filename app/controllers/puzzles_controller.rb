@@ -1,6 +1,6 @@
 class PuzzlesController < ApplicationController
   def index 
-    @puzzles = Puzzle.all 
+    @puzzles = Puzzle.all.where(put_together: true)
   end 
 
   def show
