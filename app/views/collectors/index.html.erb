@@ -6,6 +6,7 @@
 <%= link_to "New Collector", "/collectors/new" %>
 <% @collectors.each do |collector| %>
   <h3><p><%= collector.name %></p></h3>
+  <%= link_to "Update #{collector.name}", "/collectors/#{collector.id}/edit" %>
   <h4><p>Created: <%= collector.created_at %></p></h4>
   <p>Skills Rating: <%= collector.skills_rating %></p>
   <p>Under 30 years old: <%= collector.under_30_yrs %></p>
