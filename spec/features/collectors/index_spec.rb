@@ -82,5 +82,4 @@ RSpec.describe "collectors index page" do
       expect(current_path).to eq('/collectors')
     end  
   end 
-
 end 

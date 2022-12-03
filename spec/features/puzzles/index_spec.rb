@@ -17,6 +17,17 @@ RSpec.describe "puzzles index page" do
     expect(page).to have_content("Put Together: #{rainbowcookies.put_together}")
   end 
 
+  it 'only displays the puzzles where put_together equals true' do 
+    charlie = Collector.create!(name: "Charlie Moore", skills_rating: 5, under_30_yrs: false)
+    starwars = Puzzle.create!(name: "Star Wars", pieces_count: 1000, put_together: true, collector: charlie)
+    coffee = Puzzle.create!(name: "Coffee Shop", pieces_count: 800, put_together: false, collector: charlie)
+
+    visit '/puzzles'
+
+    expect(page).to have_content(starwars.name)
+    expect(page).to_not have_content(coffee.name)
+  end 
+
   describe 'When I visit any page on the site' do 
     it 'shows a go to puzzles index link at the top of the page' do 
       charlie = Collector.create!(name: "Charlie Moore", skills_rating: 5, under_30_yrs: false)

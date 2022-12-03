@@ -1,12 +1,15 @@
 class CollectorPuzzlesController < ApplicationController
   def index
     @collector = ::Collector.find(params[:collector_id])
-    @puzzles = @collector.puzzles
+    if params[:sorted] 
+      @puzzles = @collector.puzzles.order(:name)
+    else
+      @puzzles = @collector.puzzles
+    end 
   end 
 
   def new 
     @collector = ::Collector.find(params[:collector_id])
-
   end 
 
   def create
