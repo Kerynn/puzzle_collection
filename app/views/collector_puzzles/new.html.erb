@@ -1,0 +1,12 @@
+<%= form_with url: "/collectors/#{@collector.id}/puzzles", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label "Pieces Count" %>
+  <%= form.text_field "Pieces Count" %>
+
+  <%= form.label "Put Together" %>
+  <%= form.check_box "Put Together" %>
+
+  <%= form.submit "Create Puzzle" %>
+<% end %>
