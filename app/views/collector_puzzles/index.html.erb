@@ -4,6 +4,8 @@
 <br>
 <%= link_to "Create Puzzle", "/collectors/#{@collector.id}/puzzles/new" %>
 <br>
+<%= link_to "Sort Puzzles Alphabetically", "/collectors/#{@collector.id}/puzzles?sorted=true"  %>
+<br>
 
 <% @puzzles.each do |puzzle| %>
 <h3><p><%= puzzle.name %></p></h3>
