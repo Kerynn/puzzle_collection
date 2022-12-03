@@ -35,8 +35,12 @@ RSpec.describe 'update the collector' do
   describe 'when I visit the collector index page' do 
     it 'links to the edit page to edit the collector information' do 
       leslie = Collector.create!(name: "Leslie Grant", skills_rating: 8, under_30_yrs: true)
+      charlie = Collector.create!(name: "Charlie Moore", skills_rating: 5, under_30_yrs: false)
 
       visit "/collectors"
+      expect(page).to have_link("Update #{leslie.name}")
+      expect(page).to have_link("Update #{charlie.name}")
+
       click_link "Update #{leslie.name}"
 
       expect(current_path).to eq("/collectors/#{leslie.id}/edit")
@@ -50,12 +54,11 @@ RSpec.describe 'update the collector' do
 
       click_link "Update #{leslie.name}"
       visit "/collectors/#{leslie.id}/edit"
-      save_and_open_page
+      
       fill_in('Name', with: "Leslie Grant")
       fill_in('Skills Rating', with: 8)
       check("Under 30 Years Old")
       click_button 'Update Collector'
-
 
       expect(current_path).to eq("/collectors/#{leslie.id}")
       expect(page).to have_content("Leslie Grant")
