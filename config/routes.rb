@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get '/puzzles/:id', to: 'puzzles#show'
   get '/collectors/:collector_id/puzzles', to: 'collector_puzzles#index'
   post '/collectors', to: 'collectors#create'
+  get '/collectors/:id/edit', to: 'collectors#edit'
+  patch '/collectors/:id', to: 'collectors#update'
 end
 

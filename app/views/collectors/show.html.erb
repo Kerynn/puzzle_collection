@@ -5,6 +5,7 @@
 <%= link_to "Go to the Puzzles of this Collector", "/collectors/#{@collector.id}/puzzles" %>
 
 <h1><%= @collector.name %></h1>
+<%= link_to "Update Collector", "/collectors/#{@collector.id}/edit" %>
 <p>Skills Rating: <%= @collector.skills_rating %></p>
 <p>Under 30 Years Old: <%= @collector.under_30_yrs %></p>
 <p>Total Puzzle Count: <%= @collector.puzzle_count %></p>

@@ -17,4 +17,17 @@ class CollectorsController < ApplicationController
       under_30_yrs: params["Under 30 Years Old"])
     redirect_to "/collectors"
   end 
+
+  def edit
+    @collector = ::Collector.find(params[:id])
+  end 
+
+  def update 
+    @collector = ::Collector.find(params[:id])
+    @collector.update(
+      name: params[:name],
+      skills_rating: params["Skills Rating"].to_i,
+      under_30_yrs: params["Under 30 Years Old"])
+    redirect_to "/collectors/#{@collector.id}"
+  end 
 end 
