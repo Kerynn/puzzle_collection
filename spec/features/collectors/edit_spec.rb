@@ -31,4 +31,36 @@ RSpec.describe 'update the collector' do
       expect(page).to have_content("Under 30 Years Old: true")
     end 
   end 
+
+  describe 'when I visit the collector index page' do 
+    it 'links to the edit page to edit the collector information' do 
+      leslie = Collector.create!(name: "Leslie Grant", skills_rating: 8, under_30_yrs: true)
+
+      visit "/collectors"
+      click_link "Update #{leslie.name}"
+
+      expect(current_path).to eq("/collectors/#{leslie.id}/edit")
+    end
+    
+    it 'can update the collector information' do 
+      leslie = Collector.create!(name: "Lesleeee Grant", skills_rating: 8, under_30_yrs: false)
+
+      visit "/collectors"
+      expect(page).to have_content('Lesleeee Grant')
+
+      click_link "Update #{leslie.name}"
+      visit "/collectors/#{leslie.id}/edit"
+      save_and_open_page
+      fill_in('Name', with: "Leslie Grant")
+      fill_in('Skills Rating', with: 8)
+      check("Under 30 Years Old")
+      click_button 'Update Collector'
+
+
+      expect(current_path).to eq("/collectors/#{leslie.id}")
+      expect(page).to have_content("Leslie Grant")
+      expect(page).to have_content("Skills Rating: 8")
+      expect(page).to have_content("Under 30 Years Old: true")
+    end 
+  end 
 end 
