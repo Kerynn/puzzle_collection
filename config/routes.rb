@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   delete '/collectors/:id', to: 'collectors#destroy'
   post '/collectors/:collector_id/puzzles', to: 'collector_puzzles#create'
   patch '/puzzles/:id', to: 'puzzles#update'
+  delete '/puzzles/:id', to: 'puzzles#destroy'
 end
 
