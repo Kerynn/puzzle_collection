@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'destroy a collector' do 
   describe 'when I visit the collector show page' do 
-    it 'i see a link to delete the collector' do 
+    it 'shows a link to delete the collector' do 
       bob = Collector.create!(name: "Bob Bobbins", skills_rating: 2, under_30_yrs: false)
 
       visit "/collectors/#{bob.id}"
