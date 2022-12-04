@@ -59,4 +59,35 @@ RSpec.describe "Collectors puzzles index" do
     expect(dogs_puzzle.name).to appear_before(lake_puzzle.name)
     expect(lake_puzzle.name).to appear_before(starwars.name)
   end 
+
+  describe 'pieces_greater_than' do 
+    it 'shows a form to input a value of pieces' do 
+      nicole = Collector.create!(name: "Nicole Wofford", skills_rating: 10, under_30_yrs: true)
+      lake_puzzle = nicole.puzzles.create!(name: "Hintersee Lake", pieces_count: 1000, put_together: true)
+      dogs_puzzle = nicole.puzzles.create!(name: "Dogs A-Z", pieces_count: 600, put_together: true)
+      starwars = nicole.puzzles.create!(name: "Star Wars", pieces_count: 300, put_together: true)
+      
+      visit "/collectors/#{nicole.id}/puzzles"
+
+      expect(page).to have_field("Input Pieces Count Value")
+    end 
+
+    xit 'will display only the puzzles that have a pieces_count greater than value entered in form' do 
+      nicole = Collector.create!(name: "Nicole Wofford", skills_rating: 10, under_30_yrs: true)
+      lake_puzzle = nicole.puzzles.create!(name: "Hintersee Lake", pieces_count: 1000, put_together: true)
+      dogs_puzzle = nicole.puzzles.create!(name: "Dogs A-Z", pieces_count: 600, put_together: true)
+      starwars = nicole.puzzles.create!(name: "Star Wars", pieces_count: 300, put_together: true)
+      
+      visit "/collectors/#{nicole.id}/puzzles"
+      expect(page).to have_content(starwars.name)
+
+      fill_in("Input Pieces Count Value", with: 500)
+      click_button("Update Puzzles by Pieces Count")
+
+      expect(current_path).to eq("/collectors/#{nicole.id}/puzzles")
+      expect(page).to have_content(lake_puzzle.name)
+      expect(page).to have_content(dogs_puzzle.name)
+      expect(page).to_not have_content(starwars.name)
+    end 
+  end 
 end 
