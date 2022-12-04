@@ -6,6 +6,16 @@
 <br>
 <%= link_to "Sort Puzzles Alphabetically", "/collectors/#{@collector.id}/puzzles?sorted=true"  %>
 <br>
+<p>
+  <h4>To Display Puzzles with Pieces Count Greater than a Specific Value:</h4>
+  <%= form_with url: "/collectors/#{@collector.id}/puzzles", method: :get, local: true do |form| %>
+    <%= form.label "Input Pieces Count Value" %>
+    <%= form.text_field "Input Pieces Count Value" %>
+
+    <%= form.submit "Update Puzzles by Pieces Count" %>
+  <% end %>
+</p>
+<br>
 
 <% @puzzles.each do |puzzle| %>
 <h3><p><%= puzzle.name %></p></h3>
