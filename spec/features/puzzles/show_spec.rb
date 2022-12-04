@@ -14,6 +14,4 @@ RSpec.describe 'the puzzles show page' do
     expect(page).to have_content("Put Together: #{starwars.put_together}")
     expect(page).to_not have_content(rainbowcookies.name)
   end 
-
-
 end 

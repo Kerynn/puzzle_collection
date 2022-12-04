@@ -19,4 +19,10 @@ class PuzzlesController < ApplicationController
       put_together: params["Put Together"])
     redirect_to "/puzzles/#{@puzzle.id}"
   end 
+
+  def destroy
+    puzzle = Puzzle.find(params[:id])
+    puzzle.destroy
+    redirect_to "/puzzles"
+  end 
 end  

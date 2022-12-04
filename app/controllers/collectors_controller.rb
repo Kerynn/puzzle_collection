@@ -30,4 +30,11 @@ class CollectorsController < ApplicationController
       under_30_yrs: params["Under 30 Years Old"])
     redirect_to "/collectors/#{@collector.id}"
   end 
+
+  def destroy
+    collector = ::Collector.find(params[:id])
+    collector.puzzles.destroy_all
+    collector.destroy
+    redirect_to '/collectors'
+  end 
 end 
