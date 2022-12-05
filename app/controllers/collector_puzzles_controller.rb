@@ -2,7 +2,7 @@ class CollectorPuzzlesController < ApplicationController
   def index
     @collector = ::Collector.find(params[:collector_id])
     if params[:sorted] 
-      @puzzles = @collector.puzzles.order(:name)
+      @puzzles = @collector.sort_alpha
     else
       @puzzles = @collector.puzzles
     end 
