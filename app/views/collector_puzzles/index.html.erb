@@ -4,11 +4,11 @@
 <br>
 <%= link_to "Create Puzzle", "/collectors/#{@collector.id}/puzzles/new" %>
 <br>
-<%= link_to "Sort Puzzles Alphabetically", "/collectors/#{@collector.id}/puzzles?sorted=true"  %>
+<%= link_to "Sort Puzzles Alphabetically", "/collectors/#{@collector.id}/puzzles?alpha=true"  %>
 <br>
 <p>
   <h4>To Display Puzzles with Pieces Count Greater than a Specific Value:</h4>
-  <%= form_with url: "/collectors/#{@collector.id}/puzzles", method: :get, local: true do |form| %>
+  <%= form_with url: "/collectors/#{@collector.id}/puzzles?sorted=num", method: :get, local: true do |form| %>
     <%= form.label "Input Pieces Count Value" %>
     <%= form.text_field "Input Pieces Count Value" %>
 

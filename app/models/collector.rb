@@ -8,4 +8,7 @@ class Collector < ApplicationRecord
   def sort_alpha
     puzzles.order(:name)
   end 
+
+  # def pieces_greater_than
+  # end 
 end 
