@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'destroy a puzzle from the collector puzzle index page' do 
   describe 'when I visit the collector puzzle index page' do 
-    it 'shows a link next to every puzzle to delete the puzzle' do 
+    it 'shows a button next to every puzzle to delete the puzzle' do 
       caleb = Collector.create!(name: "Caleb Faleb", skills_rating: 7, under_30_yrs: false)
       buffalo = caleb.puzzles.create!(name: "Buffalo Roams", pieces_count: 600, put_together: true)
       snow = caleb.puzzles.create!(name: "Snowy Mountains", pieces_count: 800, put_together: true)
