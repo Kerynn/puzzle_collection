@@ -8,7 +8,7 @@ RSpec.describe 'destroy a puzzle' do
 
       visit "/puzzles/#{buffalo.id}"
       
-      expect(page).to have_link("Delete Puzzle")
+      expect(page).to have_button("Delete Puzzle")
     end
 
     it 'deletes the puzzle and returns to the puzzle index page' do 
@@ -19,7 +19,7 @@ RSpec.describe 'destroy a puzzle' do
       expect(page).to have_content(buffalo.name)
 
       visit "/puzzles/#{buffalo.id}"
-      click_link "Delete Puzzle"
+      click_button "Delete Puzzle"
 
       expect(current_path).to eq("/puzzles")
       expect(page).to_not have_content(buffalo.name)
@@ -34,8 +34,8 @@ RSpec.describe 'destroy a puzzle' do
 
       visit "/puzzles"
       
-      expect(page).to have_link("Delete #{buffalo.name}")
-      expect(page).to have_link("Delete #{snow.name}")
+      expect(page).to have_button("Delete #{buffalo.name}")
+      expect(page).to have_button("Delete #{snow.name}")
     end
 
     it 'deletes the puzzle and no longer displayed on the puzzle index page' do 
@@ -48,7 +48,7 @@ RSpec.describe 'destroy a puzzle' do
       expect(page).to have_content(buffalo.name)
       expect(page).to have_content(snow.name)
 
-      click_link "Delete #{buffalo.name}"
+      click_button "Delete #{buffalo.name}"
     
       expect(current_path).to eq("/puzzles")
       expect(page).to_not have_content(buffalo.name)

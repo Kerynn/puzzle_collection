@@ -8,8 +8,8 @@ RSpec.describe 'destroy a puzzle from the collector puzzle index page' do
       snow = caleb.puzzles.create!(name: "Snowy Mountains", pieces_count: 800, put_together: true)
 
       visit "/collectors/#{caleb.id}/puzzles"
-      expect(page).to have_link("Delete #{buffalo.name}")
-      expect(page).to have_link("Delete #{snow.name}")
+      expect(page).to have_button("Delete #{buffalo.name}")
+      expect(page).to have_button("Delete #{snow.name}")
     end 
 
     it 'deletes the puzzle and returns to the puzzle index page' do 
@@ -22,7 +22,7 @@ RSpec.describe 'destroy a puzzle from the collector puzzle index page' do
       expect(page).to have_content(buffalo.name)
       expect(page).to have_content(snow.name)
 
-      click_link "Delete #{snow.name}"
+      click_button "Delete #{snow.name}"
     
       expect(current_path).to eq("/puzzles")
       expect(page).to_not have_content(snow.name)

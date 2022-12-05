@@ -6,7 +6,7 @@ RSpec.describe 'destroy a collector' do
       bob = Collector.create!(name: "Bob Bobbins", skills_rating: 2, under_30_yrs: false)
 
       visit "/collectors/#{bob.id}"
-      expect(page).to have_link("Delete Collector")
+      expect(page).to have_button("Delete Collector")
     end 
 
     it 'deletes the collector and returns to the collector index page' do 
@@ -19,7 +19,7 @@ RSpec.describe 'destroy a collector' do
       expect(page).to have_content(bob.name)
 
       visit "/collectors/#{bob.id}"
-      click_link "Delete Collector"
+      click_button "Delete Collector"
       
       expect(current_path).to eq("/collectors")
       expect(page).to_not have_content(bob.name)
@@ -34,9 +34,9 @@ RSpec.describe 'destroy a collector' do
 
       visit "/collectors"
 
-      expect(page).to have_link("Delete #{bob.name}")
-      expect(page).to have_link("Delete #{ozzie.name}")
-      expect(page).to have_link("Delete #{kamee.name}")
+      expect(page).to have_button("Delete #{bob.name}")
+      expect(page).to have_button("Delete #{ozzie.name}")
+      expect(page).to have_button("Delete #{kamee.name}")
     end 
 
     it 'deletes the collector and no longer displayed on the collector index page' do 
@@ -50,8 +50,8 @@ RSpec.describe 'destroy a collector' do
       expect(page).to have_content(ozzie.name)
       expect(page).to have_content(kamee.name)
 
-      click_link "Delete #{bob.name}"
-      click_link "Delete #{ozzie.name}"
+      click_button "Delete #{bob.name}"
+      click_button "Delete #{ozzie.name}"
       
       expect(current_path).to eq("/collectors")
       expect(page).to_not have_content(bob.name)

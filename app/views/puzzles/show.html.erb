@@ -6,6 +6,6 @@
 <h1><%= @puzzle.name %></h1>
 <%= link_to "Update Puzzle", "/puzzles/#{@puzzle.id}/edit" %>
 <br>
-<%= link_to "Delete Puzzle", "/puzzles/#{@puzzle.id}", method: :delete %>
+<%= button_to "Delete Puzzle", "/puzzles/#{@puzzle.id}", method: :delete %>
 <p>Pieces Count: <%= @puzzle.pieces_count %></p>
 <p>Put Together: <%= @puzzle.put_together %></p>
