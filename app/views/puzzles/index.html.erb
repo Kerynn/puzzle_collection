@@ -4,7 +4,7 @@
 <h1>Puzzles</h1>
 <% @puzzles.each do |puzzle| %>
   <h3><p><%= puzzle.name %></p></h3>
-  <%= link_to "Update #{puzzle.name}", "/puzzles/#{puzzle.id}/edit" %>
+  <%= link_to "Update #{puzzle.name}", "/puzzles/#{puzzle.id}/edit" %><br>
   <br>
   <%= button_to "Delete #{puzzle.name}", "/puzzles/#{puzzle.id}", method: :delete %>
   <p>Pieces Count: <%= puzzle.pieces_count %></p>

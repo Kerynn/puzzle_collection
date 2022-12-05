@@ -4,7 +4,7 @@
 <br>
 <%= link_to "Create Puzzle", "/collectors/#{@collector.id}/puzzles/new" %>
 <br>
-<%= link_to "Sort Puzzles Alphabetically", "/collectors/#{@collector.id}/puzzles?alpha=true"  %>
+<%= link_to "Sort Puzzles Alphabetically", "/collectors/#{@collector.id}/puzzles?alpha=true" %>
 <br>
 <p>
   <h4>To Display Puzzles with Pieces Count Greater than a Specific Value:</h4>
@@ -19,7 +19,7 @@
 
 <% @puzzles.each do |puzzle| %>
 <h3><p><%= puzzle.name %></p></h3>
-<%= link_to "Update #{puzzle.name}", "/puzzles/#{puzzle.id}/edit" %>
+<%= link_to "Update #{puzzle.name}", "/puzzles/#{puzzle.id}/edit" %><br>
 <br>
 <%= button_to "Delete #{puzzle.name}", "/puzzles/#{puzzle.id}", method: :delete %>
 <p>Pieces Count: <%= puzzle.pieces_count %></p>

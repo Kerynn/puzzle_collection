@@ -6,7 +6,7 @@
 <%= link_to "New Collector", "/collectors/new" %>
 <% @collectors.each do |collector| %>
   <h3><p><%= collector.name %></p></h3>
-  <%= link_to "Update #{collector.name}", "/collectors/#{collector.id}/edit" %>
+  <%= link_to "Update #{collector.name}", "/collectors/#{collector.id}/edit" %><br>
   <br>
   <%= button_to "Delete #{collector.name}", "/collectors/#{collector.id}", method: :delete %> 
   <h4><p>Created: <%= collector.created_at %></p></h4>
