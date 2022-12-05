@@ -13,10 +13,7 @@ class PuzzlesController < ApplicationController
 
   def update 
     @puzzle = Puzzle.find(params[:id])
-    @puzzle.update(
-      name: params[:name],
-      pieces_count: params["Pieces Count"].to_i,
-      put_together: params["Put Together"])
+    @puzzle.update(puzzle_params)
     redirect_to "/puzzles/#{@puzzle.id}"
   end 
 
@@ -24,5 +21,10 @@ class PuzzlesController < ApplicationController
     puzzle = Puzzle.find(params[:id])
     puzzle.destroy
     redirect_to "/puzzles"
+  end 
+
+  private 
+  def puzzle_params
+    params.permit(:name, :pieces_count, :put_together)
   end 
 end  

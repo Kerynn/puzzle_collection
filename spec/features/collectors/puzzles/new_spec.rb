@@ -21,8 +21,8 @@ RSpec.describe 'creating a new puzzle for a collector' do
     
     click_link('Create Puzzle')
     fill_in('Name', with: 'Log Cabin')
-    fill_in('Pieces Count', with: 500)
-    check("Put Together")
+    fill_in('Pieces count', with: 500)
+    check("Put together")
     click_button('Create Puzzle')
 
     cabin = Puzzle.last 

@@ -14,10 +14,12 @@ class CollectorPuzzlesController < ApplicationController
 
   def create
     @collector = ::Collector.find(params[:collector_id])
-    @puzzles = @collector.puzzles.create(
-      name: params[:name],
-      pieces_count: params["Pieces Count"].to_i,
-      put_together: params["Put Together"])
+    @puzzles = @collector.puzzles.create(puzzle_params)
     redirect_to "/collectors/#{@collector.id}/puzzles"
+  end 
+
+  private 
+  def puzzle_params
+    params.permit(:name, :pieces_count, :put_together)
   end 
 end 
