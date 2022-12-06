@@ -9,6 +9,7 @@ class Collector < ApplicationRecord
     puzzles.order(:name)
   end 
 
-  # def pieces_greater_than
-  # end 
+  def pieces_greater_than(input_pieces)
+    puzzles.where("pieces_count > #{input_pieces}")
+  end 
 end 
