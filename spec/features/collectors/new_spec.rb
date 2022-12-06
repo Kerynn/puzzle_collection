@@ -13,8 +13,8 @@ RSpec.describe 'creating a new Collector Record' do
     visit '/collectors/new'
 
     fill_in('Name', with: 'Veronica Smith')
-    fill_in('Skills Rating', with: 6)
-    check("Under 30 Years Old")
+    fill_in('Skills rating', with: 6)
+    check("Under 30 yrs")
     click_button('Create Collector')
 
     veronica = Collector.last
@@ -23,5 +23,4 @@ RSpec.describe 'creating a new Collector Record' do
     expect(page).to have_content("Skills Rating: #{veronica.skills_rating}")
     expect(page).to have_content("Under 30 years old: #{veronica.under_30_yrs}")
   end 
-
 end 

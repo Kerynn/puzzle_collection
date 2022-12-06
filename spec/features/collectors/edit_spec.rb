@@ -21,8 +21,8 @@ RSpec.describe 'update the collector' do
       click_link 'Update Collector'
       visit "/collectors/#{collector_1.id}/edit"
       fill_in('Name', with: "Charlie Moore")
-      fill_in('Skills Rating', with: 5)
-      check("Under 30 Years Old")
+      fill_in('Skills rating', with: '5')
+      check("Under 30 yrs")
       click_button 'Update Collector'
 
       expect(current_path).to eq("/collectors/#{collector_1.id}")
@@ -56,8 +56,8 @@ RSpec.describe 'update the collector' do
       visit "/collectors/#{leslie.id}/edit"
       
       fill_in('Name', with: "Leslie Grant")
-      fill_in('Skills Rating', with: 8)
-      check("Under 30 Years Old")
+      fill_in('Skills rating', with: '8')
+      check("Under 30 yrs")
       click_button 'Update Collector'
 
       expect(current_path).to eq("/collectors/#{leslie.id}")

@@ -1,12 +1,15 @@
 <%= form_with url: '/collectors', method: :post, local: true do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name %><br>
+  <br>
 
-  <%= form.label "Skills Rating" %>
-  <%= form.text_field "Skills Rating" %>
+  <%= form.label :skills_rating %>
+  <%= form.text_field :skills_rating %><br>
+  <br>
 
-  <%= form.label "Under 30 Years Old" %>
-  <%= form.check_box "Under 30 Years Old" %>
+  <%= form.label :under_30_yrs %>
+  <%= form.check_box :under_30_yrs %><br>
+  <br>
 
   <%= form.submit "Create Collector" %>
 <% end %>

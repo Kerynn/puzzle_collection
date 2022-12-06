@@ -28,8 +28,8 @@ RSpec.describe 'update a collectors puzzle' do
       click_link "Update #{starwars.name}"
       visit "/puzzles/#{starwars.id}/edit"
       fill_in('Name', with: "Star Wars")
-      fill_in('Pieces Count', with: 1000)
-      check("Put Together")
+      fill_in('Pieces count', with: '1000')
+      check("Put together")
       click_button 'Update Puzzle'
 
       expect(current_path).to eq("/puzzles/#{starwars.id}")

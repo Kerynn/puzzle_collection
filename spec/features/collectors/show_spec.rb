@@ -61,10 +61,17 @@ RSpec.describe 'collectors show page' do
       visit "/collectors/#{nicole.id}"
       click_link "Go to the Puzzles of this Collector"
       expect(current_path).to eq("/collectors/#{nicole.id}/puzzles")
+      expect(page).to have_content(lake_puzzle.name)
+      expect(page).to have_content(dogs_puzzle.name)
+      expect(page).to have_content(cats.name)
+      expect(page).to_not have_content(rainbowcookies.name)
 
       visit "/collectors/#{charlie.id}"
       click_link "Go to the Puzzles of this Collector"
       expect(current_path).to eq("/collectors/#{charlie.id}/puzzles")
+      expect(page).to have_content(starwars.name)
+      expect(page).to have_content(rainbowcookies.name)
+      expect(page).to_not have_content(cats.name)
     end 
   end 
 end 

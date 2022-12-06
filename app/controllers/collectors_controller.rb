@@ -11,10 +11,7 @@ class CollectorsController < ApplicationController
   end 
 
   def create 
-    collector = ::Collector.create(
-      name: params[:name],
-      skills_rating: params["Skills Rating"].to_i,
-      under_30_yrs: params["Under 30 Years Old"])
+    collector = ::Collector.create(collector_params)
     redirect_to "/collectors"
   end 
 
@@ -24,10 +21,7 @@ class CollectorsController < ApplicationController
 
   def update 
     @collector = ::Collector.find(params[:id])
-    @collector.update(
-      name: params[:name],
-      skills_rating: params["Skills Rating"].to_i,
-      under_30_yrs: params["Under 30 Years Old"])
+    @collector.update(collector_params)
     redirect_to "/collectors/#{@collector.id}"
   end 
 
@@ -36,5 +30,10 @@ class CollectorsController < ApplicationController
     collector.puzzles.destroy_all
     collector.destroy
     redirect_to '/collectors'
+  end 
+
+  private 
+  def collector_params
+    params.permit(:name, :skills_rating, :under_30_yrs)
   end 
 end 
