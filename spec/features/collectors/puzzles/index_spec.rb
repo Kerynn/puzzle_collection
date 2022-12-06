@@ -69,10 +69,10 @@ RSpec.describe "Collectors puzzles index" do
       
       visit "/collectors/#{nicole.id}/puzzles"
 
-      expect(page).to have_field("Input Pieces Count Value")
+      expect(page).to have_field("Input pieces")
     end 
 
-    xit 'will display only the puzzles that have a pieces_count greater than value entered in form' do 
+    it 'will display only the puzzles that have a pieces_count greater than value entered in form' do 
       nicole = Collector.create!(name: "Nicole Wofford", skills_rating: 10, under_30_yrs: true)
       lake_puzzle = nicole.puzzles.create!(name: "Hintersee Lake", pieces_count: 1000, put_together: true)
       dogs_puzzle = nicole.puzzles.create!(name: "Dogs A-Z", pieces_count: 600, put_together: true)
@@ -81,7 +81,7 @@ RSpec.describe "Collectors puzzles index" do
       visit "/collectors/#{nicole.id}/puzzles"
       expect(page).to have_content(starwars.name)
 
-      fill_in("Input Pieces Count Value", with: 500)
+      fill_in("Input pieces", with: 500)
       click_button("Update Puzzles by Pieces Count")
 
       expect(current_path).to eq("/collectors/#{nicole.id}/puzzles")

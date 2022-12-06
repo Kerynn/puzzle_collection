@@ -3,12 +3,11 @@ class CollectorPuzzlesController < ApplicationController
     @collector = ::Collector.find(params[:collector_id])
     if params[:alpha] 
       @puzzles = @collector.sort_alpha
+    elsif params[:sorted]
+      @puzzles = @collector.pieces_greater_than(input_pieces)
     else
       @puzzles = @collector.puzzles
     end 
-    # if params[:sorted]
-    #   @puzzles = @collector.pieces_greater_than
-    # end 
   end 
 
   def new 

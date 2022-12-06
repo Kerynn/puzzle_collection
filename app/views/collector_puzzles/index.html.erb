@@ -8,9 +8,9 @@
 <br>
 <p>
   <h4>To Display Puzzles with Pieces Count Greater than a Specific Value:</h4>
-  <%= form_with url: "/collectors/#{@collector.id}/puzzles?sorted=num", method: :get, local: true do |form| %>
-    <%= form.label "Input Pieces Count Value" %>
-    <%= form.text_field "Input Pieces Count Value" %>
+  <%= form_with url: "/collectors/#{@collector.id}/puzzles?sorted=true", method: :get, local: true do |form| %>
+    <%= form.label :input_pieces %>
+    <%= form.text_field :input_pieces %>
 
     <%= form.submit "Update Puzzles by Pieces Count" %>
   <% end %>
