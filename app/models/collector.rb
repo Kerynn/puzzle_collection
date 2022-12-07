@@ -12,4 +12,8 @@ class Collector < ApplicationRecord
   def pieces_greater_than(input_pieces)
     puzzles.where("pieces_count > #{input_pieces}")
   end 
+  
+  def self.sort_collector
+    order(created_at: :desc)
+  end 
 end 

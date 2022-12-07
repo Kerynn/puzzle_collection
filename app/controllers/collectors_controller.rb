@@ -1,6 +1,7 @@
 class CollectorsController < ApplicationController 
   def index 
-    @collectors = ::Collector.all.order(created_at: :desc)
+    # @collectors = ::Collector.all.order(created_at: :desc)
+    @collectors = ::Collector.sort_collector
   end 
 
   def show 
