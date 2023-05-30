@@ -15,5 +15,9 @@ class Collector < ApplicationRecord
   
   def self.sort_collector
     order(created_at: :desc)
-  end 
+  end
+
+  def self.sort_by_puzzles
+    joins(:puzzles).group(:id).order('COUNT(puzzles.id) DESC')
+  end
 end 
