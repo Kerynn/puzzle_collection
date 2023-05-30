@@ -2,7 +2,7 @@
 <br>
 <%= link_to "Go to Puzzles Index", "/puzzles" %>
 <br>
-<%= link_to "Sort Collectors by Puzzle Count" %>
+<%= link_to "Sort Collectors by Total Puzzles", "/collectors?sort=true" %>
 
 <h1>Collectors</h1>
 <%= link_to "New Collector", "/collectors/new" %>
@@ -14,4 +14,5 @@
   <h4><p>Created: <%= collector.created_at %></p></h4>
   <p>Skills Rating: <%= collector.skills_rating %></p>
   <p>Under 30 years old: <%= collector.under_30_yrs %></p>
+  <p>Total Puzzles: <%= collector.puzzle_count %></p>
 <% end %>  
