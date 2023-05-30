@@ -1,7 +1,10 @@
 class CollectorsController < ApplicationController 
   def index 
-    # @collectors = ::Collector.all.order(created_at: :desc)
-    @collectors = ::Collector.sort_collector
+    if params[:sort]
+      @collectors = ::Collector.sort_by_puzzles
+    else
+      @collectors = ::Collector.sort_collector
+    end
   end 
 
   def show 
